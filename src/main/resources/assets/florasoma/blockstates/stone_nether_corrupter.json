@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "type=blood": {"model": "florasoma:blood_corrupter"},
+    "type=azure": {"model": "florasoma:azure_corrupter"},
+    "type=envious": {"model": "florasoma:envious_corrupter"},
+    "type=amber": {"model": "florasoma:amber_corrupter"},
+    "type=heart": {"model": "florasoma:heart_corrupter"},
+    "type=dark": {"model": "florasoma:dark_corrupter"},
+    "type=bright": {"model": "florasoma:bright_corrupter"},
+    "type=pure": {"model": "florasoma:pure_corrupter"}
+  }
+}
+
+

@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "type=blood": {"model": "florasoma:blood_brick"},
+    "type=azure": {"model": "florasoma:azure_brick"},
+    "type=envious": {"model": "florasoma:envious_brick"},
+    "type=amber": {"model": "florasoma:amber_brick"},
+    "type=heart": {"model": "florasoma:heart_brick"},
+    "type=dark": {"model": "florasoma:dark_brick"},
+    "type=bright": {"model": "florasoma:bright_brick"},
+    "type=pure": {"model": "florasoma:pure_brick"}
+  }
+}
+
+

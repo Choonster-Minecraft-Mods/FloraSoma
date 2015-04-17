@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "florasoma:blocks/blood_corrupter_grass_side"
+    }
+}

@@ -1,0 +1,29 @@
+itemGroup.florasoma=Flora & Soma
+
+tile.stone.brick.nether.corrupt.blood.name=Blood Corrupted Nether Brick
+tile.stone.brick.nether.corrupt.azure.name=Azure Corrupted Nether Brick
+tile.stone.brick.nether.corrupt.envious.name=Envious Corrupted Nether Brick
+tile.stone.brick.nether.corrupt.amber.name=Amber Corrupted Nether Brick
+tile.stone.brick.nether.corrupt.heart.name=Heart Corrupted Nether Brick
+tile.stone.brick.nether.corrupt.dark.name=Dark Corrupted Nether Brick
+tile.stone.brick.nether.corrupt.bright.name=Bright Corrupted Nether Brick
+tile.stone.brick.nether.corrupt.pure.name=Pure Corrupted Nether Brick
+
+tile.stone.nether.corrupt.blood.name=Blood Corrupted Stone
+tile.stone.nether.corrupt.azure.name=Azure Corrupted Stone
+tile.stone.nether.corrupt.envious.name=Envious Corrupted Stone
+tile.stone.nether.corrupt.amber.name=Amber Corrupted Stone
+tile.stone.nether.corrupt.heart.name=Heart Corrupted Stone
+tile.stone.nether.corrupt.dark.name=Dark Corrupted Stone
+tile.stone.nether.corrupt.bright.name=Bright Corrupted Stone
+tile.stone.nether.corrupt.pure.name=Pure Corrupted Stone
+
+tile.stone.nether.corrupter.blood.name=Blood Corrupter
+tile.stone.nether.corrupter.azure.name=Azure Corrupter
+tile.stone.nether.corrupter.envious.name=Envious Corrupter
+tile.stone.nether.corrupter.amber.name=Amber Corrupter
+tile.stone.nether.corrupter.heart.name=Heart Corrupter
+tile.stone.nether.corrupter.dark.name=Dark Corrupter
+tile.stone.nether.corrupter.bright.name=Bright Corrupter
+tile.stone.nether.corrupter.pure.name=Pure Corrupter
+

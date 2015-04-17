@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "type=blood": {"model": "florasoma:blood_stone"},
+    "type=azure": {"model": "florasoma:azure_stone"},
+    "type=envious": {"model": "florasoma:envious_stone"},
+    "type=amber": {"model": "florasoma:amber_stone"},
+    "type=heart": {"model": "florasoma:heart_stone"},
+    "type=dark": {"model": "florasoma:dark_stone"},
+    "type=bright": {"model": "florasoma:bright_stone"},
+    "type=pure": {"model": "florasoma:pure_stone"}
+  }
+}
+
+
