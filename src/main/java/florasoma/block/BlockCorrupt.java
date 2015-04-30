@@ -1,6 +1,6 @@
 package florasoma.block;
 
-import florasoma.common.Config;
+import florasoma.common.ConfigMain;
 import florasoma.util.EnumType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -14,7 +14,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldProviderEnd;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -40,7 +39,7 @@ public class BlockCorrupt extends BlockFloraSoma
     {
         if (!worldIn.isRemote)
         {
-            if (Config.corruptionSpread)
+            if (ConfigMain.corruptionSpread)
             {
                 if (this.getBlockState().getBlock() == BlocksFS.corrupter)
                 {

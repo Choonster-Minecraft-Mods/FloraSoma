@@ -1,6 +1,6 @@
 package florasoma.proxy;
 
-public class FloraSomaProxyServer extends FloraSomaProxy
+public class ServerProxy extends CommonProxy
 {
     public void preInit()
     {

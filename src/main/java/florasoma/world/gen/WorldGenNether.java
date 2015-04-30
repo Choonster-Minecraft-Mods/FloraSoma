@@ -1,6 +1,6 @@
 package florasoma.world.gen;
 
-import florasoma.common.Config;
+import florasoma.common.ConfigMain;
 import florasoma.block.BlocksFS;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -16,7 +16,7 @@ public class WorldGenNether implements IWorldGenerator
 
     public WorldGenNether()
     {
-        corrupter = new WorldGenMinableMeta(BlocksFS.corrupter.getDefaultState(), 8, Config.corrupterVeinSize, Blocks.netherrack);
+        corrupter = new WorldGenMinableMeta(BlocksFS.corrupter.getDefaultState(), 8, ConfigMain.corrupterVeinSize, Blocks.netherrack);
     }
 
     @Override
@@ -24,14 +24,14 @@ public class WorldGenNether implements IWorldGenerator
     {
         if(world.provider.getDimensionId() == -1)
         {
-            if (Config.genCorruption)
+            if (ConfigMain.genCorruption)
                 generateCorrupter(world, random, chunkX * 16, chunkZ * 16);
         }
     }
 
     public void generateCorrupter(World world, Random rand, int chunkX, int chunkZ)
     {
-        for (int i = 0; i < Config.corrupterRarity; i++)
+        for (int i = 0; i < ConfigMain.corrupterRarity; i++)
         {
             int hi = rand.nextInt(256);
             int randX = chunkX + rand.nextInt(16);
