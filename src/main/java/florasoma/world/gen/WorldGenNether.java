@@ -22,7 +22,7 @@ public class WorldGenNether implements IWorldGenerator
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
     {
-        if(world.provider.getDimensionId() == -1)
+        if (world.provider.getDimensionId() == -1)
         {
             if (ConfigMain.genCorruption)
                 generateCorrupter(world, random, chunkX * 16, chunkZ * 16);

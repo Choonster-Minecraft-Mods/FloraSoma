@@ -1,7 +1,7 @@
 package florasoma.proxy;
 
 import florasoma.FloraSoma;
-import florasoma.common.ConfigHandler;
+import florasoma.common.ConfigVillage;
 import florasoma.util.BiomeBlockReplacer;
 import florasoma.util.BiomeRegistrant;
 import florasoma.util.TextureManager;
@@ -27,24 +27,28 @@ public class ClientProxy extends CommonProxy
     {
         BiomeRegistrant.init();
 
-        for (String name : ConfigHandler.getAddBiomes()) {
+        for (String name : ConfigVillage.getAddBiomes())
+        {
             if (Pattern.matches("\\d+", name))
                 BiomeRegistrant.addBiomeById(Integer.parseInt(name));
             else
                 BiomeRegistrant.addBiomeByName(name);
         }
-        for (String name : ConfigHandler.getAddTypes()) {
+        for (String name : ConfigVillage.getAddTypes())
+        {
             FloraSoma.instance.log.info(String.format("Adding all %s biomes as village biomes.", name));
             BiomeRegistrant.addBiomesByTypeName(name);
         }
 
-        for (String name : ConfigHandler.getRemoveBiomes()) {
+        for (String name : ConfigVillage.getRemoveBiomes())
+        {
             if (Pattern.matches("\\d+", name))
                 BiomeRegistrant.removeBiomeById(Integer.parseInt(name));
             else
                 BiomeRegistrant.removeBiomeByName(name);
         }
-        for (String name : ConfigHandler.getRemoveTypes()) {
+        for (String name : ConfigVillage.getRemoveTypes())
+        {
             FloraSoma.instance.log.info(String.format("Removing all %s biomes from village biomes.", name));
             BiomeRegistrant.removeBiomesByTypeName(name);
         }

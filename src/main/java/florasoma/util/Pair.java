@@ -1,5 +1,7 @@
 package florasoma.util;
 
+import net.minecraft.block.state.IBlockState;
+
 public class Pair<Left, Right>
 {
     public final Left left;

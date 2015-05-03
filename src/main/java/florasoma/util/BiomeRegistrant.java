@@ -10,17 +10,21 @@ import net.minecraftforge.common.BiomeManager;
 import java.util.HashSet;
 import java.util.Set;
 
-public class BiomeRegistrant {
+public class BiomeRegistrant
+{
 
     private static Set<BiomeGenBase> biomeSet;
 
-    public static void init() {
+    public static void init()
+    {
         biomeSet = fetchAllBiomes();
     }
 
-    public static void addBiomeById(int id) {
+    public static void addBiomeById(int id)
+    {
         BiomeGenBase biomeForId = null;
-        for (BiomeGenBase biome : biomeSet) {
+        for (BiomeGenBase biome : biomeSet)
+        {
             if (biome.biomeID == id)
                 biomeForId = biome;
         }
@@ -31,9 +35,11 @@ public class BiomeRegistrant {
             FloraSoma.instance.log.warn("Can't find biome with ID " + id);
     }
 
-    public static void addBiomeByName(String name) {
+    public static void addBiomeByName(String name)
+    {
         BiomeGenBase biomeForId = null;
-        for (BiomeGenBase biome : biomeSet) {
+        for (BiomeGenBase biome : biomeSet)
+        {
             if (biome.biomeName.equals(name))
                 biomeForId = biome;
         }
@@ -44,18 +50,22 @@ public class BiomeRegistrant {
             FloraSoma.instance.log.warn("Can't find biome with name " + name);
     }
 
-    public static void addBiome(BiomeGenBase biome) {
+    public static void addBiome(BiomeGenBase biome)
+    {
         BiomeManager.addVillageBiome(biome, true);
         FloraSoma.instance.log.info(String.format("Added %s (ID:%d) as a village biome.", biome.biomeName, biome.biomeID));
     }
 
-    public static void addBiomesByType(Type type) {
-        for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(type)) {
+    public static void addBiomesByType(Type type)
+    {
+        for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(type))
+        {
             addBiome(biome);
         }
     }
 
-    public static void addBiomesByTypeName(String name) {
+    public static void addBiomesByTypeName(String name)
+    {
         Type type = Type.valueOf(name);
         if (type != null)
             addBiomesByType(type);
@@ -65,9 +75,11 @@ public class BiomeRegistrant {
 
     // Removals
 
-    public static void removeBiomeById(int id) {
+    public static void removeBiomeById(int id)
+    {
         BiomeGenBase biomeForId = null;
-        for (BiomeGenBase biome : biomeSet) {
+        for (BiomeGenBase biome : biomeSet)
+        {
             if (biome.biomeID == id)
                 biomeForId = biome;
         }
@@ -78,9 +90,11 @@ public class BiomeRegistrant {
             FloraSoma.instance.log.warn("Can't find biome with ID " + id);
     }
 
-    public static void removeBiomeByName(String name) {
+    public static void removeBiomeByName(String name)
+    {
         BiomeGenBase biomeForId = null;
-        for (BiomeGenBase biome : biomeSet) {
+        for (BiomeGenBase biome : biomeSet)
+        {
             if (biome.biomeName.equals(name))
                 biomeForId = biome;
         }
@@ -91,18 +105,22 @@ public class BiomeRegistrant {
             FloraSoma.instance.log.warn("Can't find biome with name " + name);
     }
 
-    public static void removeBiome(BiomeGenBase biome) {
+    public static void removeBiome(BiomeGenBase biome)
+    {
         BiomeManager.removeVillageBiome(biome);
         FloraSoma.instance.log.info(String.format("Removed %s (ID:%d) from village biomes.", biome.biomeName, biome.biomeID));
     }
 
-    public static void removeBiomesByType(Type type) {
-        for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(type)) {
+    public static void removeBiomesByType(Type type)
+    {
+        for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(type))
+        {
             removeBiome(biome);
         }
     }
 
-    public static void removeBiomesByTypeName(String name) {
+    public static void removeBiomesByTypeName(String name)
+    {
         Type type = Type.valueOf(name);
         if (type != null)
             removeBiomesByType(type);
@@ -111,9 +129,11 @@ public class BiomeRegistrant {
     }
 
 
-    private static Set<BiomeGenBase> fetchAllBiomes() {
+    private static Set<BiomeGenBase> fetchAllBiomes()
+    {
         HashSet<BiomeGenBase> biomes = new HashSet<BiomeGenBase>();
-        for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray()) {
+        for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
+        {
             if (biome != null)
                 biomes.add(biome);
         }

@@ -12,7 +12,7 @@ public class Tab extends CreativeTabs
         super(name);
     }
 
-    public Tab init (Item item)
+    public Tab init(Item item)
     {
         display = item;
         return this;

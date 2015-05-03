@@ -13,7 +13,7 @@ public class TextureManager
 {
     public static void registerTextures()
     {
-        for(int i = 0; i < EnumType.Corrupt.values().length; i++)
+        for (int i = 0; i < EnumType.Corrupt.values().length; i++)
         {
             registerBlock(BlocksFS.corrupter, i, EnumType.Corrupt.fromMetadata(i).getName() + "_corrupter");
             registerBlock(BlocksFS.corruptStone, i, EnumType.Corrupt.fromMetadata(i).getName() + "_stone");
@@ -23,7 +23,7 @@ public class TextureManager
 
     public static void registerVariants()
     {
-        for(int i = 0; i < EnumType.Corrupt.values().length; i++)
+        for (int i = 0; i < EnumType.Corrupt.values().length; i++)
         {
             addVariant(BlocksFS.corrupter, new String[]{FloraSoma.RSC_PRE + EnumType.Corrupt.fromMetadata(i).getName() + "_corrupter"});
             addVariant(BlocksFS.corruptStone, new String[]{FloraSoma.RSC_PRE + EnumType.Corrupt.fromMetadata(i).getName() + "_stone"});

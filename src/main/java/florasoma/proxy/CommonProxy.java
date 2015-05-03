@@ -3,7 +3,6 @@ package florasoma.proxy;
 import florasoma.FloraSoma;
 import florasoma.Recipes;
 import florasoma.block.BlocksFS;
-import florasoma.common.ConfigHandler;
 import florasoma.common.ConfigMain;
 import florasoma.world.gen.Generators;
 import florasoma.world.gen.VillageGenReplacer;

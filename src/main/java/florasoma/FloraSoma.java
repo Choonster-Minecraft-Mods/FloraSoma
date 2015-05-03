@@ -1,7 +1,7 @@
 package florasoma;
 
 import com.google.common.collect.Lists;
-import florasoma.common.ConfigHandler;
+import florasoma.common.ConfigVillage;
 import florasoma.common.ConfigMain;
 import florasoma.util.Tab;
 import florasoma.proxy.CommonProxy;
@@ -15,7 +15,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
-import java.lang.reflect.Field;
 
 @Mod(modid = FloraSoma.MOD_ID, name = FloraSoma.NAME, version = FloraSoma.VERSION)
 public class FloraSoma
@@ -29,7 +28,7 @@ public class FloraSoma
 
     public static final String RSC_PRE = MOD_ID + ":";
     public static int ORE_WEIGHT = 20;
-    
+
     @Mod.Instance(FloraSoma.MOD_ID)
     public static FloraSoma instance;
 
@@ -60,7 +59,7 @@ public class FloraSoma
         file = new File(event.getModConfigurationDirectory(), "/FloraSoma/VillageBiomes.cfg");
 
         ConfigMain.initConfig(event);
-        ConfigHandler.loadConfig(file);
+        ConfigVillage.loadConfig(file);
         proxy.preInit();
     }
 

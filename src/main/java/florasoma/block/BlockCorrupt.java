@@ -63,47 +63,47 @@ public class BlockCorrupt extends BlockFloraSoma
 
 
     @SideOnly(Side.CLIENT)
-            public void getSubBlocks (Item item, CreativeTabs creativeTabs, List list)
-            {
-                EnumType.Corrupt[] type = EnumType.Corrupt.values();
-                int i = type.length;
+    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list)
+    {
+        EnumType.Corrupt[] type = EnumType.Corrupt.values();
+        int i = type.length;
 
-                for (int j = 0; j < i; ++j)
-                {
-                    EnumType.Corrupt enumMarbleColor = type[j];
-                    list.add(new ItemStack(item, 1, enumMarbleColor.getMetadata(j)));
-                }
-            }
-
-            @Override
-            public final IBlockState getStateFromMeta ( int meta)
-            {
-                return addVariant(this.getDefaultState(), EnumType.Corrupt.fromMetadata(meta));
-            }
-
-            @Override
-            public final int getMetaFromState (IBlockState state)
-            {
-                EnumType.Corrupt value = (EnumType.Corrupt) state.getValue(TYPE);
-                return value.ordinal();
-            }
-
-            @Override
-            public final int damageDropped (IBlockState state)
-            {
-                EnumType.Corrupt value = (EnumType.Corrupt) state.getValue(TYPE);
-                return value.ordinal();
-            }
-
-            @Override
-            protected final BlockState createBlockState ()
-            {
-                return new BlockState(this, new IProperty[]{TYPE});
-            }
-
-        private static IBlockState addVariant (IBlockState baseState, EnumType.Corrupt value)
+        for (int j = 0; j < i; ++j)
         {
-            return baseState.withProperty(TYPE, value);
+            EnumType.Corrupt enumMarbleColor = type[j];
+            list.add(new ItemStack(item, 1, enumMarbleColor.getMetadata(j)));
         }
-
     }
+
+    @Override
+    public final IBlockState getStateFromMeta(int meta)
+    {
+        return addVariant(this.getDefaultState(), EnumType.Corrupt.fromMetadata(meta));
+    }
+
+    @Override
+    public final int getMetaFromState(IBlockState state)
+    {
+        EnumType.Corrupt value = (EnumType.Corrupt) state.getValue(TYPE);
+        return value.ordinal();
+    }
+
+    @Override
+    public final int damageDropped(IBlockState state)
+    {
+        EnumType.Corrupt value = (EnumType.Corrupt) state.getValue(TYPE);
+        return value.ordinal();
+    }
+
+    @Override
+    protected final BlockState createBlockState()
+    {
+        return new BlockState(this, new IProperty[]{TYPE});
+    }
+
+    private static IBlockState addVariant(IBlockState baseState, EnumType.Corrupt value)
+    {
+        return baseState.withProperty(TYPE, value);
+    }
+
+}

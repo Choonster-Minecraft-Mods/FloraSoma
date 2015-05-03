@@ -52,31 +52,31 @@ public class OreGen implements IWorldGenerator
             int x = (chunkX << 4) + random.nextInt(16);
             int z = (chunkZ << 4) + random.nextInt(16);
 
-            if(maxY == 16)
+            if (maxY == 16)
             {
                 int y = random.nextInt(maxY - 0) + 0;
                 oreGen.generate(world, random, new BlockPos(x, y, z));
             }
 
-            if(maxY == 32)
+            if (maxY == 32)
             {
                 int y = random.nextInt(maxY - 17) + 17;
                 oreGen.generate(world, random, new BlockPos(x, y, z));
             }
 
-            if(maxY == 48)
+            if (maxY == 48)
             {
                 int y = random.nextInt(maxY - 33) + 33;
                 oreGen.generate(world, random, new BlockPos(x, y, z));
             }
 
-            if(maxY == 64)
+            if (maxY == 64)
             {
                 int y = random.nextInt(maxY - 49) + 49;
                 oreGen.generate(world, random, new BlockPos(x, y, z));
             }
 
-            if(maxY == 256)
+            if (maxY == 256)
             {
                 int y = random.nextInt(maxY - 65) + 65;
                 oreGen.generate(world, random, new BlockPos(x, y, z));
