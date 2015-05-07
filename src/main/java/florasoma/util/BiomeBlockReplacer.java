@@ -2,23 +2,19 @@ package florasoma.util;
 
 import florasoma.FloraSoma;
 import florasoma.common.ConfigVillage;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockColored;
-import net.minecraft.block.BlockSlab;
-import net.minecraft.block.BlockStairs;
+import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.terraingen.BiomeEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
-import net.minecraftforge.fml.common.eventhandler.IEventListener;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.List;
 import java.util.Map;
 
-public class BiomeBlockReplacer implements IEventListener
+public class BiomeBlockReplacer
 {
     private Map<Block, List<Pair<String, Block>>> replacements;
     private Map<Block, List<Pair<String, Integer>>> metadata;
@@ -29,51 +25,47 @@ public class BiomeBlockReplacer implements IEventListener
         metadata = ConfigVillage.getMetadata();
     }
 
-    @Override
     @SubscribeEvent
-    public void invoke(Event event)
+    public void setVillageBlocks(BiomeEvent.GetVillageBlockID event)
     {
-        if (event instanceof BiomeEvent.GetVillageBlockID)
+
+        if (replacements.containsKey(event.original.getBlock()))
         {
-            BiomeEvent.GetVillageBlockID ev = (BiomeEvent.GetVillageBlockID) event;
-            if (replacements.containsKey(ev.original.getBlock()))
+            for (Pair<String, Block> pair : replacements.get(event.original.getBlock()))
             {
-                for (Pair<String, Block> pair : replacements.get(ev.original.getBlock()))
+                if (metadata.containsKey(event.original.getBlock()))
                 {
-                    if(metadata.containsKey(ev.original.getBlock()))
+                    for (Pair<String, Integer> pair1 : metadata.get(event.original.getBlock()))
                     {
-                        for (Pair<String, Integer> pair1 : metadata.get(ev.original.getBlock()))
+                        if (checkCondition(event.biome, pair.left))
                         {
-                            if (checkCondition(ev.biome, pair.left))
+                            if (event.original.getBlock() instanceof BlockStairs)
                             {
-                                if (ev.original.getBlock() instanceof BlockStairs)
+                                event.replacement = copyStairsState(event.original, pair.right);
+                            } else if (event.original.getBlock() instanceof BlockSlab)
+                            {
+                                event.replacement = copySlabState(event.original, pair.right);
+                            } else
+                            {
+                                if (checkCondition(event.biome, pair1.left))
                                 {
-                                    ev.replacement = copyStairsState(ev.original, pair.right);
-                                } else if (ev.original.getBlock() instanceof BlockSlab)
-                                {
-                                    ev.replacement = copySlabState(ev.original, pair.right);
-                                } else
-                                {
-                                    if (checkCondition(ev.biome, pair1.left))
+                                    if (pair1.right == 0)
                                     {
-                                        if (pair1.right == 0)
-                                        {
-                                            ev.replacement = pair.right.getDefaultState();
-                                        } else
-                                        {
-                                            ev.replacement = pair.right.getStateFromMeta(pair1.right);
-                                        }
+                                        event.replacement = pair.right.getDefaultState();
+                                    } else
+                                    {
+                                        event.replacement = pair.right.getStateFromMeta(pair1.right);
                                     }
-                                    }
-                                ev.setResult(Event.Result.DENY);
+                                }
                             }
+                            event.setResult(Event.Result.DENY);
                         }
                     }
                 }
             }
+
         }
     }
-
 
     private static boolean checkCondition(BiomeGenBase biome, String condition)
     {

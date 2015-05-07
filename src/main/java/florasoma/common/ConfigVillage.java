@@ -33,6 +33,7 @@ public class ConfigVillage
                     IOUtils.copy(defaultConf, writer);
                     writer.close();
                     defaultConf.close();
+
                 } catch (Exception e)
                 {
                     FloraSoma.instance.log.fatal(e.getMessage());
@@ -98,7 +99,6 @@ public class ConfigVillage
 
                 String condition = m.group(3);
                 FloraSoma.instance.log.info("Will replace " + b.getUnlocalizedName().substring(5) + " with " + replacement.getUnlocalizedName().substring(5) + " where " + condition);
-                if (b.equals(replacement)) continue;
 
                 if (!map.containsKey(b))
                     map.put(b, new ArrayList<Pair<String, Block>>());

@@ -9,21 +9,16 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.lang.reflect.Field;
 
-public class VillageGenReplacer implements IEventListener
+public class VillageGenReplacer
 {
-
-    @Override
     @SubscribeEvent
-    public void invoke(Event event)
+    public void setVillages(InitMapGenEvent event)
     {
-        if (event instanceof InitMapGenEvent)
-        {
-            InitMapGenEvent e = (InitMapGenEvent) event;
-            if (e.type == InitMapGenEvent.EventType.VILLAGE)
+            if (event.type == InitMapGenEvent.EventType.VILLAGE)
             {
-                if (!(e.newGen == e.originalGen))
+                if (!(event.newGen == event.originalGen))
                 {
-                    FloraSoma.instance.log.fatal("The village map generator was overwritten by another mod. There might be crashes! \n The new generator class is " + e.getClass().getCanonicalName());
+                    FloraSoma.instance.log.fatal("The village map generator was overwritten by another mod. There might be crashes! \n The new generator class is " + event.getClass().getCanonicalName());
                 }
 
                 try
@@ -32,7 +27,7 @@ public class VillageGenReplacer implements IEventListener
                     Field density = null;
                     Field minDist = null;
 
-                    Field[] fields = e.newGen.getClass().getDeclaredFields();
+                    Field[] fields = event.newGen.getClass().getDeclaredFields();
                     for (Field f : fields)
                     {
                         String name = f.getName();
@@ -51,17 +46,17 @@ public class VillageGenReplacer implements IEventListener
                     if (type != null)
                     {
                         type.setAccessible(true);
-                        type.setInt(e.newGen, ConfigMain.villageSize.getInt(0));
+                        type.setInt(event.newGen, ConfigMain.villageSize.getInt(0));
                     }
                     if (density != null)
                     {
                         density.setAccessible(true);
-                        density.setInt(e.newGen, ConfigMain.villageSpawnDensity.getInt(32));
+                        density.setInt(event.newGen, ConfigMain.villageSpawnDensity.getInt(32));
                     }
                     if (minDist != null)
                     {
                         minDist.setAccessible(true);
-                        minDist.setInt(e.newGen, ConfigMain.minimumVillageDistance.getInt(8));
+                        minDist.setInt(event.newGen, ConfigMain.minimumVillageDistance.getInt(8));
                     }
                     FloraSoma.instance.log.info("Modified MapGenVillage fields.");
                 } catch (Exception exc)
@@ -73,5 +68,3 @@ public class VillageGenReplacer implements IEventListener
         }
 
     }
-
-}
